@@ -1,5 +1,6 @@
 ---
-
+let title = "SF Chess Club";
+let pageDescription = "The San Francisco Chess Club";
 ---
 
 <html lang="en">
@@ -8,9 +9,69 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		
+		<!-- Meta Tags -->
+        <meta name="description" content={pageDescription}>
+        <meta name="keywords" content="SF Chess Club, San Francisco, Chess">
+        <meta property="og:url" content="https://sfchess.club">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content={title}>
+        <meta property="og:description" content={pageDescription}>
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content={title}>
+        <meta name="twitter:description" content={pageDescription}>
+        <!-- <meta name="twitter:image" content="https://sfchess.club/logo.png"> -->
+
+		<title>SF Chess Club</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>San Francisco Chess Club</h1>
+
+		<div class="content-container">
+			<p>currently developing our pieces... (and the website)</p>
+		</div>
 	</body>
 </html>
+
+<style>
+	html {
+		/* 
+		CHECKERBOARD BACKGROUND
+		To change the colors of the board, update the hex codes.
+		To change the size of the squares, update the values after the slash.
+		*/
+		background: repeating-conic-gradient(#875337 0 25%, #f4deba 0 50%) 50% / 20vh 20vh;
+	}
+
+	body {
+		margin: 0;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	h1 {
+		text-align: center;
+		margin: 10vh 0 2.5rem 0;
+		width: fit-content;
+		background: #e0c08d;
+		padding: 1rem 2.5rem;
+		border-radius: 1.5rem;
+		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+		font-style: italic;
+		border: 2px solid #fffbe9;
+	}
+
+	.content-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #fffbe9;
+		padding: 1rem 2.5rem;
+		border-radius: 1.5rem;
+		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+		border: 2px solid #e0c08d;
+	}
+</style>
