@@ -25,6 +25,20 @@ let pageDescription = "The San Francisco Chess Club";
 		<title>SF Chess Club</title>
 	</head>
 	<body>
+		<!-- Floating chess pieces background -->
+		<div class="chess-pieces-bg">
+			<div class="chess-piece" style="--delay: 0s; --start-x: -10%; --end-x: 30%; --peak-y: 10%;"></div>
+			<div class="chess-piece" style="--delay: 1.5s; --start-x: 110%; --end-x: 70%; --peak-y: 15%;"></div>
+			<div class="chess-piece" style="--delay: 3s; --start-x: -5%; --end-x: 40%; --peak-y: 25%;"></div>
+			<div class="chess-piece" style="--delay: 4.5s; --start-x: 105%; --end-x: 60%; --peak-y: 30%;"></div>
+			<div class="chess-piece" style="--delay: 6s; --start-x: -15%; --end-x: 25%; --peak-y: 20%;"></div>
+			<div class="chess-piece" style="--delay: 7.5s; --start-x: 115%; --end-x: 80%; --peak-y: 35%;"></div>
+			<div class="chess-piece" style="--delay: 9s; --start-x: -8%; --end-x: 35%; --peak-y: 40%;"></div>
+			<div class="chess-piece" style="--delay: 10.5s; --start-x: 108%; --end-x: 65%; --peak-y: 45%;"></div>
+			<div class="chess-piece" style="--delay: 12s; --start-x: -12%; --end-x: 50%; --peak-y: 50%;"></div>
+			<div class="chess-piece" style="--delay: 13.5s; --start-x: 112%; --end-x: 75%; --peak-y: 55%;"></div>
+		</div>
+
 		<h1>San Francisco Chess Club</h1>
 
 		<div class="content-container">
@@ -56,6 +70,73 @@ let pageDescription = "The San Francisco Chess Club";
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+		min-height: 100vh;
+	}
+
+	.chess-pieces-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	.chess-piece {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		background-image: url('/icons/chess-pawn-icon.svg');
+		background-size: contain;
+		background-repeat: no-repeat;
+		opacity: 0;
+		left: var(--start-x);
+		top: 100%;
+		animation: arc-flight 4s infinite ease-out;
+		animation-delay: var(--delay);
+		transform-origin: center;
+	}
+
+	@keyframes arc-flight {
+		0% {
+			left: var(--start-x);
+			top: 100%;
+			opacity: 0;
+			transform: rotate(0deg) scale(0.8);
+		}
+		10% {
+			opacity: 0.7;
+		}
+		25% {
+			left: calc((var(--start-x) + var(--end-x)) / 2);
+			top: var(--peak-y);
+			opacity: 0.9;
+			transform: rotate(180deg) scale(1.1);
+		}
+		50% {
+			left: calc((var(--start-x) + var(--end-x)) / 2 + 5%);
+			top: calc(var(--peak-y) + 10%);
+			opacity: 0.8;
+			transform: rotate(270deg) scale(1);
+		}
+		75% {
+			left: var(--end-x);
+			top: 80%;
+			opacity: 0.6;
+			transform: rotate(360deg) scale(0.9);
+		}
+		90% {
+			opacity: 0.3;
+		}
+		100% {
+			left: var(--end-x);
+			top: 110%;
+			opacity: 0;
+			transform: rotate(450deg) scale(0.7);
+		}
 	}
 
 	h1 {
