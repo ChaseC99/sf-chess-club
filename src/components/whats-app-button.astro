@@ -1,0 +1,34 @@
+---
+import WhatsAppIcon from '../assets/icons/whats-app.svg';
+const whatsappLink = "https://chat.whatsapp.com/Jyu84XhO97wJDJISrDwda7"; // Replace with your actual WhatsApp group link
+---
+
+<a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="whatsapp-cta">
+    <WhatsAppIcon class="whatsapp-icon" />
+    <span>Join the WhatsApp</span>
+</a>
+
+<style>
+.whatsapp-cta {
+    display: inline-flex;
+    align-items: center;
+    background: #128c7e;
+    color: white;
+    padding: 0.6em 1.2em;
+    border-radius: 0.5em;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    transition: 0.2s;
+}
+.whatsapp-cta:hover {
+    background: #075e54;
+}
+
+.whatsapp-icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    margin-right: 0.5em;
+}
+</style>

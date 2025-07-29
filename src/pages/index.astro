@@ -1,6 +1,8 @@
 ---
 let title = "SF Chess Club";
 let pageDescription = "The San Francisco Chess Club";
+
+import WhatsAppButton from '../components/whats-app-button.astro';
 ---
 
 <html lang="en">
@@ -39,18 +41,36 @@ let pageDescription = "The San Francisco Chess Club";
 			<div class="chess-piece" style="--delay: 13.5s; --start-x: 112%; --end-x: 75%; --peak-y: 55%;"></div>
 		</div>
 
-		<h1>San Francisco Chess Club</h1>
+		<div class="header">
+			<h1>San Francisco Chess Club</h1>
+			<p class="meeting-info">
+				Every Monday, 7:30-10:00pm
+				<br />
+				at <a href="https://maps.app.goo.gl/Pjt8ty5oMTLkcVgo9" target="_blank" rel="noopener">Willkommen Bar</a>
+			</p>
+		</div>
 
 		<div class="content-container">
 			<p>
-				currently developing our pieces... 
+				Come play some chess, make friends, and learn new moves!
+				All skill levels are welcome.
+			</p>
+
+			<p>
+				Currently developing our pieces... 
 				(and the <a href="https://github.com/ChaseC99/sf-chess-club" target="_blank" rel="noopener">website</a>)
 			</p>
 		</div>
+
+		<WhatsAppButton />
 	</body>
 </html>
 
 <style>
+	html {
+		font-family: 'Montserrat', Arial, sans-serif;
+	}
+
 	html {
 		/* 
 		CHECKERBOARD BACKGROUND
@@ -59,8 +79,8 @@ let pageDescription = "The San Francisco Chess Club";
 		*/
 		background: repeating-conic-gradient(#875337 0 25%, #f4deba 0 50%) 50% / 20vh 20vh;
 		
-		/* Make the cursor a pawn */
-		cursor: url('/icons/chess-pawn-icon.svg'), auto;
+		/* Make the cursor a king */
+		cursor: url('/icons/king-white.svg') 16 16, auto;
 	}
 
 	body {
@@ -73,6 +93,7 @@ let pageDescription = "The San Francisco Chess Club";
 		position: relative;
 		overflow: hidden;
 		min-height: 100vh;
+		gap: 2.5rem;
 	}
 
 	.chess-pieces-bg {
@@ -139,23 +160,34 @@ let pageDescription = "The San Francisco Chess Club";
 		}
 	}
 
-	h1 {
+	.header {
 		text-align: center;
-		margin: 10vh 0 2.5rem 0;
+		margin: 10vh 1rem 2.5rem 1rem;
 		width: fit-content;
 		background: #e0c08d;
 		padding: 1rem 2.5rem;
 		border-radius: 1.5rem;
 		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
-		font-style: italic;
 		border: 2px solid #fffbe9;
 	}
 
+	.meeting-info {
+		font-size: 1.2rem;
+		margin-top: 0.5rem;
+	}
+	
+	.meeting-info a {
+		color: #333;
+	}
+
+	h1 {
+		text-wrap: pretty;
+		font-style: italic;
+	}
+
 	.content-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		background: #fffbe9;
+		margin: 0 1rem;
 		padding: 1rem 2.5rem;
 		border-radius: 1.5rem;
 		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
