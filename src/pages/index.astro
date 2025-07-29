@@ -1,6 +1,8 @@
 ---
 let title = "SF Chess Club";
 let pageDescription = "The San Francisco Chess Club";
+
+import WhatsAppButton from '../components/whats-app-button.astro';
 ---
 
 <html lang="en">
@@ -29,10 +31,23 @@ let pageDescription = "The San Francisco Chess Club";
 
 		<div class="content-container">
 			<p>
-				currently developing our pieces... 
+				Come play some chess, make friends, and learn new moves!
+			</p>
+			<p>
+				All skill levels are welcome.
+			</p>
+			<p>
+				Monday's from 7:30-10:00 PM at 
+				<a href="https://maps.app.goo.gl/Pjt8ty5oMTLkcVgo9" target="_blank" rel="noopener">Willkommen Bar</a>
+			</p>
+
+			<p>
+				Currently developing our pieces... 
 				(and the <a href="https://github.com/ChaseC99/sf-chess-club" target="_blank" rel="noopener">website</a>)
 			</p>
 		</div>
+
+		<WhatsAppButton />
 	</body>
 </html>
 
@@ -56,11 +71,13 @@ let pageDescription = "The San Francisco Chess Club";
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		gap: 2.5rem;
 	}
 
 	h1 {
 		text-align: center;
-		margin: 10vh 0 2.5rem 0;
+		text-wrap: pretty;
+		margin: 10vh 1rem 2.5rem 1rem;
 		width: fit-content;
 		background: #e0c08d;
 		padding: 1rem 2.5rem;
@@ -71,10 +88,8 @@ let pageDescription = "The San Francisco Chess Club";
 	}
 
 	.content-container {
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		background: #fffbe9;
+		margin: 0 1rem;
 		padding: 1rem 2.5rem;
 		border-radius: 1.5rem;
 		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
