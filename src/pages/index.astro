@@ -27,18 +27,20 @@ import WhatsAppButton from '../components/whats-app-button.astro';
 		<title>SF Chess Club</title>
 	</head>
 	<body>
-		<h1>San Francisco Chess Club</h1>
+		<div class="header">
+			<h1>San Francisco Chess Club</h1>
+			<p class="meeting-info">
+				Every Monday, 7:30-10:00pm
+				<br />
+				at <a href="https://maps.app.goo.gl/Pjt8ty5oMTLkcVgo9" target="_blank" rel="noopener">Willkommen Bar</a>
+			</p>
+		</div>
+		
 
 		<div class="content-container">
 			<p>
 				Come play some chess, make friends, and learn new moves!
-			</p>
-			<p>
 				All skill levels are welcome.
-			</p>
-			<p>
-				Monday's from 7:30-10:00 PM at 
-				<a href="https://maps.app.goo.gl/Pjt8ty5oMTLkcVgo9" target="_blank" rel="noopener">Willkommen Bar</a>
 			</p>
 
 			<p>
@@ -52,6 +54,10 @@ import WhatsAppButton from '../components/whats-app-button.astro';
 </html>
 
 <style>
+	html {
+		font-family: 'Montserrat', Arial, sans-serif;
+	}
+
 	html {
 		/* 
 		CHECKERBOARD BACKGROUND
@@ -74,17 +80,29 @@ import WhatsAppButton from '../components/whats-app-button.astro';
 		gap: 2.5rem;
 	}
 
-	h1 {
+	.header {
 		text-align: center;
-		text-wrap: pretty;
 		margin: 10vh 1rem 2.5rem 1rem;
 		width: fit-content;
 		background: #e0c08d;
 		padding: 1rem 2.5rem;
 		border-radius: 1.5rem;
 		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
-		font-style: italic;
 		border: 2px solid #fffbe9;
+	}
+
+	.meeting-info {
+		font-size: 1.2rem;
+		margin-top: 0.5rem;
+	}
+	
+	.meeting-info a {
+		color: #333;
+	}
+
+	h1 {
+		text-wrap: pretty;
+		font-style: italic;
 	}
 
 	.content-container {
