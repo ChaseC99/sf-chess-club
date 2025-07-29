@@ -13,7 +13,8 @@ import KingBlack from '../assets/icons/pieces/king-black.svg';
 ---
 
 <!-- Floating chess pieces background -->
-<div class="chess-pieces-bg">
+<!-- Show only if reduce motion is NOT enabled -->
+<div class="chess-pieces-bg" style="display: none;">
     <div
         class="chess-piece"
         style="--delay: 0s; --start-x: -10vw; --end-x: 60vw; --peak-y: 15vh;"
@@ -128,3 +129,14 @@ import KingBlack from '../assets/icons/pieces/king-black.svg';
         }
     }
 </style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+	const confetti = document.querySelector('.chess-pieces-bg') as HTMLElement | null;
+	if (confetti) {
+	  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		confetti.style.display = ''; // Show only if reduce motion is NOT enabled
+	  }
+	}
+  });
+</script>
