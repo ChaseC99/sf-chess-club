@@ -3,6 +3,7 @@ let title = "SF Chess Club";
 let pageDescription = "The San Francisco Chess Club";
 
 import WhatsAppButton from '../components/whats-app-button.astro';
+import ConfettiChess from '../components/confetti-chess.astro';
 ---
 
 <html lang="en">
@@ -27,15 +28,16 @@ import WhatsAppButton from '../components/whats-app-button.astro';
 		<title>SF Chess Club</title>
 	</head>
 	<body>
+		<ConfettiChess />
+		
 		<div class="header">
 			<h1>San Francisco Chess Club</h1>
 			<p class="meeting-info">
 				Every Monday, 7:30-10:00pm
 				<br />
-				at <a href="https://maps.app.goo.gl/Pjt8ty5oMTLkcVgo9" target="_blank" rel="noopener">Willkommen Bar</a>
+				@ <a href="https://maps.app.goo.gl/Pjt8ty5oMTLkcVgo9" target="_blank" rel="noopener">Willkommen Bier & Wein Garten</a>
 			</p>
 		</div>
-		
 
 		<div class="content-container">
 			<p>
@@ -74,9 +76,11 @@ import WhatsAppButton from '../components/whats-app-button.astro';
 		margin: 0;
 		width: 100%;
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		position: relative;
+		overflow: hidden;
+		min-height: 100vh;
 		gap: 2.5rem;
 	}
 
@@ -85,7 +89,7 @@ import WhatsAppButton from '../components/whats-app-button.astro';
 		margin: 10vh 1rem 2.5rem 1rem;
 		width: fit-content;
 		background: #e0c08d;
-		padding: 1rem 2.5rem;
+		padding: 1rem 1.5rem;
 		border-radius: 1.5rem;
 		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
 		border: 2px solid #fffbe9;
@@ -112,5 +116,6 @@ import WhatsAppButton from '../components/whats-app-button.astro';
 		border-radius: 1.5rem;
 		box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
 		border: 2px solid #e0c08d;
+		text-align: center;
 	}
 </style>
