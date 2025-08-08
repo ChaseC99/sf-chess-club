@@ -4,6 +4,7 @@ let pageDescription = "The San Francisco Chess Club";
 
 import WhatsAppButton from '../components/whats-app-button.astro';
 import ConfettiChess from '../components/confetti-chess.astro';
+import PhotoCarousel from '../components/photo-carousel.astro';
 ---
 
 <html lang="en">
@@ -39,6 +40,10 @@ import ConfettiChess from '../components/confetti-chess.astro';
 			</p>
 		</div>
 
+		<WhatsAppButton />
+
+		<PhotoCarousel />
+
 		<div class="content-container">
 			<p>
 				Come play some chess, make friends, and learn new moves!
@@ -50,8 +55,6 @@ import ConfettiChess from '../components/confetti-chess.astro';
 				(and the <a href="https://github.com/ChaseC99/sf-chess-club" target="_blank" rel="noopener">website</a>)
 			</p>
 		</div>
-
-		<WhatsAppButton />
 	</body>
 </html>
 
@@ -81,12 +84,12 @@ import ConfettiChess from '../components/confetti-chess.astro';
 		position: relative;
 		overflow: hidden;
 		min-height: 100vh;
-		gap: 2.5rem;
+		gap: 1rem;
 	}
 
 	.header {
 		text-align: center;
-		margin: 10vh 1rem 2.5rem 1rem;
+		margin: 2rem 1rem 1rem 1rem;
 		width: fit-content;
 		background: #e0c08d;
 		padding: 1rem 1.5rem;

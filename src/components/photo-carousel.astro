@@ -1,0 +1,96 @@
+---
+// Load the images for the carousel
+import Image from "astro/components/Image.astro";
+import smiling from "../assets/images/smiling.jpg";
+import beerChessImg from "../assets/images/beer-chess.jpg";
+import handMovingPiece from "../assets/images/hand-moving-piece.jpg";
+import overview from "../assets/images/overview.jpg";
+import playing from "../assets/images/playing.jpg";
+
+const images = [
+    { src: playing, alt: "Playing a chess piece" },
+    { src: beerChessImg, alt: "Playing chess while drinking a beer" },
+    { src: handMovingPiece, alt: "Hand moving a chess piece" },
+    { src: overview, alt: "Overview of the chess club" },
+    { src: smiling, alt: "Guy smiling while playing chess" },
+];
+
+// The angles array provides a set of rotation values to give each image a unique, polaroid-style tilt effect.
+function rotationFor(i: number) {
+    const angles = [-3, 2, -2, 3, -1, 2, -2, 1];
+    return `${angles[i % angles.length]}deg`;
+}
+---
+
+<div class="carousel" role="region" aria-label="Photo carousel">
+    <div class="track scrollable" id="photo-carousel-track">
+        {
+            images.map((img, i) => (
+                <figure
+                    class="photo"
+                    style={`--rot:${rotationFor(i)}; --z:${(i % 7) + 1}}"`}
+                >
+                    <Image
+                        src={img.src}
+                        alt={img.alt}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </figure>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .carousel {
+        margin: 0 8px;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        --overlap: 25px; /* how much corners overlap */
+        padding: 0.5rem 0;
+        user-select: none;
+    }
+
+    .track {
+        display: flex;
+        padding: 0 0.5rem;
+        align-items: center;
+        gap: 0; /* use negative margins for overlap */
+        contain: content;
+    }
+
+    .scrollable {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        /* Prevent accidental vertical scroll */
+        white-space: nowrap;
+    }
+    .scrollable::-webkit-scrollbar {
+        display: none;
+    }
+
+    .photo {
+        position: relative;
+        margin-left: calc(var(--overlap) * -1);
+        z-index: var(--z, 1);
+    }
+    .photo:first-child {
+        margin-left: 0;
+    }
+
+    .photo img {
+        display: block;
+        height: clamp(160px, 28vw, 340px);
+        width: auto;
+        border-radius: 12px;
+        background: #fff;
+        padding: 8px; /* print border */
+        transform: rotate(var(--rot, 0deg));
+        transform-origin: center;
+    }
+</style>
